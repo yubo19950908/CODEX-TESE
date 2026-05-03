@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>我的简单网页</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1f2933;
+      --muted: #5f6f7f;
+      --line: #d7dde3;
+      --paper: #f7f9fb;
+      --accent: #0f766e;
+      --accent-dark: #0b5d56;
+      --sun: #f2b84b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 68vh;
+      display: grid;
+      align-items: center;
+      padding: 56px 20px;
+      background:
+        linear-gradient(rgba(15, 118, 110, 0.72), rgba(22, 44, 57, 0.74)),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80") center/cover;
+      color: white;
+    }
+
+    nav,
+    .hero,
+    main,
+    footer {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: absolute;
+      top: 22px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .links a {
+      opacity: 0.9;
+    }
+
+    .links a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .hero {
+      max-width: 760px;
+      margin-left: max(20px, calc((100% - 1080px) / 2));
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(40px, 7vw, 76px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0 0 28px;
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 6px;
+      background: var(--sun);
+      color: #1d2a32;
+      font-weight: 700;
+    }
+
+    main {
+      padding: 48px 0 64px;
+    }
+
+    .section-title {
+      margin: 0 0 22px;
+      font-size: 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 190px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .band {
+      margin-top: 44px;
+      padding: 28px;
+      border-left: 6px solid var(--accent);
+      background: white;
+    }
+
+    .band h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+    }
+
+    .band p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 24px 0 36px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 760px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      header {
+        min-height: 76vh;
+        padding-top: 120px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="主导航">
+      <a class="brand" href="#">Simple Page</a>
+      <div class="links">
+        <a href="#features">亮点</a>
+        <a href="#about">关于</a>
+        <a href="#contact">联系</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <h1>一个干净、简单的网页</h1>
+      <p>这是一个可以直接打开的 HTML 页面，适合作为个人介绍、项目首页或小型展示页的起点。</p>
+      <a class="button" href="#features">查看内容</a>
+    </section>
+  </header>
+
+  <main>
+    <section id="features">
+      <h2 class="section-title">页面亮点</h2>
+      <div class="grid">
+        <article class="card">
+          <h2>结构清晰</h2>
+          <p>包含导航、首屏、内容卡片和页脚，后续扩展很方便。</p>
+        </article>
+        <article class="card">
+          <h2>响应式布局</h2>
+          <p>在电脑和手机上都会自动调整排版，文字不会拥挤。</p>
+        </article>
+        <article class="card">
+          <h2>无需依赖</h2>
+          <p>所有样式都写在同一个文件里，不需要安装任何工具。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="band" id="about">
+      <h2>关于这个页面</h2>
+      <p>你可以把这里改成个人简介、产品说明、活动介绍，或者任何你想展示的内容。</p>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <p>© 2026 Simple Page. Made with HTML and CSS.</p>
+  </footer>
+</body>
+</html>
